@@ -5,7 +5,7 @@ import Like from '../../assets/icons/like.svg'
 
 function SectionThree() {
     return (
-        <div className='mx-10'>
+        <div className='mx-10 mt-6'>
             <div className='flex justify-between'>
                 <p className='font-[600] text-2xl'>Do you still like these products?</p>
 

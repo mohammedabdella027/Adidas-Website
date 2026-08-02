@@ -4,6 +4,7 @@ import Header from './Components/Header/Header'
 import Nav from './Components/Navigation/Nav'
 import Hero from './Components/Hero/Hero'
 import SectionOne from './Components/Main/SectionOne'
+import SectionTwo from './Components/Main/SectionTwo'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Nav />
       <Hero />
       <SectionOne />
+      <SectionTwo />
     </>
   )
 }

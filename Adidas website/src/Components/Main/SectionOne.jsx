@@ -3,74 +3,46 @@ import BothArrow from '../../assets/icons/both-arrow.png'
 import Product from '../../assets/images/product.png'
 import Like from '../../assets/icons/like.svg'
 
+const products = [
+    { id: 1, name: 'Sneaker X', style: 'Sneaker Style', price: 'U$170,00' },
+    { id: 2, name: 'Sneaker X', style: 'Sneaker Style', price: 'U$170,00' },
+    { id: 3, name: 'Sneaker X', style: 'Sneaker Style', price: 'U$170,00' },
+    { id: 4, name: 'Sneaker X', style: 'Sneaker Style', price: 'U$170,00' },
+]
+
 function SectionOne() {
     return (
-        <div className='m-10'>
-            <div className='flex justify-between'>
-                <p className='font-[600] text-2xl'>adiWeek</p>
+        <div className='m-4 sm:m-6 lg:m-10'>
+            <div className='flex items-center justify-between'>
+                <p className='font-[600] text-xl sm:text-2xl'>adiWeek</p>
 
-                <img src={BothArrow} alt="BothArrow"/>
+                <img src={BothArrow} alt="BothArrow" className='h-6 sm:h-8 w-auto' />
             </div>
 
-            <div className='flex mt-8 justify-between gap-8'>
-                <div>
-                <div className='relative rounded-xl overflow-hidden shadow-lg'>
-                    <img src={Product} alt="Product" className='w-full h-full object-cover'/>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-6 sm:mt-8'>
+                {products.map((item) => (
+                    <div key={item.id}>
+                        <div className='relative rounded-xl overflow-hidden shadow-lg'>
+                            <img src={Product} alt={item.name} className='w-full h-full object-cover' />
 
-                    <img src={Like} alt="like" className='absolute top-6 right-6'/>
+                            <img
+                                src={Like}
+                                alt="like"
+                                className='absolute top-3 right-3 sm:top-6 sm:right-6 w-6 sm:w-8'
+                            />
 
-                    <p className='absolute bottom-8 left-6 text-lg font-[600] mb-1'>U$170,00</p>
-                    <p className='absolute bottom-4 left-6 font-[300] text-lg'>free shipping</p>
-                </div>
+                            <p className='absolute bottom-8 left-4 sm:left-6 text-base sm:text-lg font-[600]'>
+                                {item.price}
+                            </p>
+                            <p className='absolute bottom-3 sm:bottom-4 left-4 sm:left-6 font-[300] text-base sm:text-lg'>
+                                free shipping
+                            </p>
+                        </div>
 
-                <p className='ml-6 mt-4 font-[700]'>Sneaker X</p>
-                <p className='ml-6'>Sneaker Style</p>
-                </div>
-
-
-                <div>
-                <div className='relative rounded-xl overflow-hidden shadow-lg'>
-                    <img src={Product} alt="Product" className='w-full h-full object-cover'/>
-
-                    <img src={Like} alt="like" className='absolute top-6 right-6'/>
-
-                    <p className='absolute bottom-8 left-6 text-lg font-[600] mb-1'>U$170,00</p>
-                    <p className='absolute bottom-4 left-6 font-[300] text-lg'>free shipping</p>
-                </div>
-
-                <p className='ml-6 mt-4 font-[700]'>Sneaker X</p>
-                <p className='ml-6'>Sneaker Style</p>
-                </div>
-
-
-                <div>
-                <div className='relative rounded-xl overflow-hidden shadow-lg'>
-                    <img src={Product} alt="Product" className='w-full h-full object-cover'/>
-
-                    <img src={Like} alt="like" className='absolute top-6 right-6'/>
-
-                    <p className='absolute bottom-8 left-6 text-lg font-[600] mb-1'>U$170,00</p>
-                    <p className='absolute bottom-4 left-6 font-[300] text-lg'>free shipping</p>
-                </div>
-
-                <p className='ml-6 mt-4 font-[700]'>Sneaker X</p>
-                <p className='ml-6'>Sneaker Style</p>
-                </div>
-
-
-                <div>
-                <div className='relative rounded-xl overflow-hidden shadow-lg'>
-                    <img src={Product} alt="Product" className='w-full h-full object-cover'/>
-
-                    <img src={Like} alt="like" className='absolute top-6 right-6'/>
-
-                    <p className='absolute bottom-8 left-6 text-lg font-[600] mb-1'>U$170,00</p>
-                    <p className='absolute bottom-4 left-6 font-[300] text-lg'>free shipping</p>
-                </div>
-
-                <p className='ml-6 mt-4 font-[700]'>Sneaker X</p>
-                <p className='ml-6'>Sneaker Style</p>
-                </div>
+                        <p className='ml-4 sm:ml-6 mt-4 font-[700]'>{item.name}</p>
+                        <p className='ml-4 sm:ml-6'>{item.style}</p>
+                    </div>
+                ))}
             </div>
         </div>
     )

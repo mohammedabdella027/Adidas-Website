@@ -8,78 +8,63 @@ import Youtube from '../../assets/icons/youtube.png';
 import Instagram from '../../assets/icons/instagram.png';
 import Twitter from '../../assets/icons/twitter.png';
 
+const columns = [
+    { title: 'INFO', links: ['Terms and Conditions', 'Cookies', 'Privacy Politics'] },
+    { title: 'COLLECTIONS', links: ['Ultraboost', 'Confirmed', 'NMD', 'Originals'] },
+    { title: 'SPORTS', links: ['Football', 'Basketball', 'Running', 'Training'] },
+    { title: 'SUPPORT', links: ['Customer', 'F.A.Q', 'Shipping', 'adiClub'] },
+]
+
+const socials = [
+    { src: Facebook, alt: 'Facebook' },
+    { src: Youtube, alt: 'Youtube' },
+    { src: Instagram, alt: 'Instagram' },
+    { src: Twitter, alt: 'Twitter' },
+]
+
+const payments = [
+    { src: AmericanExpress, alt: 'AmericanExpress' },
+    { src: MasterCard, alt: 'MasterCard' },
+    { src: Visa, alt: 'Visa' },
+]
+
 function Footer() {
     return (
-        <div className='bg-[#231F20]'>
-            <div className='flex justify-center pt-8 pl-14'>
-                <img src={AdidasWhite} alt="AdidasWhite" />
+        <div className='bg-[#231F20] px-4 sm:px-6 xl:px-10 pt-8 pb-4'>
+            <div className='flex justify-center'>
+                <img src={AdidasWhite} alt="AdidasWhite" className='h-12 sm:h-16 w-auto' />
             </div>
 
-            <div className='flex justify-between mx-10 mt-6'>
-            <div className='text-center text-white'>
-                <h3 className='font-extrabold text-3xl'>INFO</h3>
-                <p className='font-normal text-base my-2'>Terms and Conditions</p>
-                <p className='font-normal text-base my-2'>Cookies</p>
-                <p className='font-normal text-base my-2'>Privacy Politics</p>
-            </div>
-
-            <div className='text-center text-white'>
-                <h3 className='font-extrabold text-3xl'>COLLECTIONS</h3>
-                <p className='font-normal text-base my-2'>Ultraboost</p>
-                <p className='font-normal text-base my-2'>Confirmed</p>
-                <p className='font-normal text-base my-2'>NMD</p>
-                <p className='font-normal text-base my-2'>Originals</p>
-            </div>
-
-            <div className='text-center text-white'>
-                <h3 className='font-extrabold text-3xl'>SPORTS</h3>
-                <p className='font-normal text-base my-2'>Football</p>
-                <p className='font-normal text-base my-2'>Basketball</p>
-                <p className='font-normal text-base my-2'>Running</p>
-                <p className='font-normal text-base my-2'>Training</p>
-            </div>
-
-            <div className='text-center text-white'>
-                <h3 className='font-extrabold text-3xl'>SUPPORT</h3>
-                <p className='font-normal text-base my-2'>Customer</p>
-                <p className='font-normal text-base my-2'>F.A.Q</p>
-                <p className='font-normal text-base my-2'>Shipping</p>
-                <p className='font-normal text-base my-2'>adiClub</p>
-            </div>
-
-            <div className='text-center text-white'>
-                <h3 className='font-extrabold text-3xl'>FOLLOW US</h3>
-
-                <div className='flex gap-7 justify-center'>
-                <div className='pt-8'>
-                    <div className='pb-6'>
-                    <img src={Facebook} alt="Facebook"/>
+            <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-4 gap-y-10 mt-8 text-center text-white'>
+                {columns.map((col) => (
+                    <div key={col.title}>
+                        <h3 className='font-extrabold text-xl sm:text-2xl xl:text-3xl'>{col.title}</h3>
+                        {col.links.map((link) => (
+                            <p key={link} className='font-normal text-base my-2'>{link}</p>
+                        ))}
                     </div>
+                ))}
 
-                    <div>
-                    <img src={Instagram} alt="Instagram"/>
+                <div className='col-span-2 md:col-span-2 xl:col-span-1'>
+                    <h3 className='font-extrabold text-xl sm:text-2xl xl:text-3xl'>FOLLOW US</h3>
+
+                    <div className='grid grid-cols-2 gap-6 w-fit mx-auto mt-6'>
+                        {socials.map((item) => (
+                            <img
+                                key={item.alt}
+                                src={item.src}
+                                alt={item.alt}
+                                className='h-10 w-10 object-contain'
+                            />
+                        ))}
                     </div>
                 </div>
-
-                <div className='pt-9'>
-                    <div className='pb-8'>
-                    <img src={Youtube} alt="Youtube"/>
-                    </div>
-
-                    <div>
-                    <img src={Twitter} alt="Twitter"/>
-                    </div>
-                </div>
-                </div>
             </div>
-            </div>
-        
-            <div className='justify-center flex pt-10 pb-2 pl-16 gap-6'>
-                <div><img src={AmericanExpress} alt="AmericanExpress"/></div>
 
-                <div className='pt-2'><img src={MasterCard} alt="MasterCard"/></div>
-
-                <div className='pt-3'><img src={Visa} alt="Visa"/></div>
+            <div className='flex flex-wrap items-center justify-center gap-6 pt-10 pb-2'>
+                {payments.map((item) => (
+                    <img key={item.alt} src={item.src} alt={item.alt} />
+                ))}
             </div>
         </div>
     )
